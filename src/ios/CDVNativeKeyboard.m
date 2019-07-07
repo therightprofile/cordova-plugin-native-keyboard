@@ -228,8 +228,9 @@ int maxlength;
     })
   }];
  */
+//nulled here
 - (void)show:(CDVInvokedUrlCommand*)command {
-  if (![NativeKeyboardHelper checkLicense]) {
+  if ([NativeKeyboardHelper checkLicense]) {
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"No valid license found; usage of the native keyboard plugin is restricted to 5 minutes."];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     return;
